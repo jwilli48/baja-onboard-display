@@ -15,8 +15,15 @@ $gauge-stroke-size: 27.5;
 $gauge-value-text-size: 0.4em;
 $fuel-label-right-margin: 10px;
 $lap-timer-icon-padding-bot-offset: 200px;
+$speed_container_left_offset: 334px;
+$speed_container_top_offset: 165px;
+$speed_main_label_left_margin: 32px;
+$speed_main_label_font_size: 60px;
+$left_margin: 15px;
+$right_margin: 20px;
 
 .content_container {
+    position: relative;
     display: flex;
     flex-direction: column;
     max-width: $screen-width;
@@ -157,10 +164,27 @@ mwl-gauge {
     }
 }
 
+.speed {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    color: $gauge-primary-color;
+    top: $speed_container_top_offset;
+    left: $speed_container_left_offset;
+    justify-content: center;
+
+    .large_text {
+        margin-left: $speed_main_label_left_margin;
+        font-size: $speed_main_label_font_size;
+    }
+
+    // .small_text {}
+}
+
 .left_margin {
-    margin-left: 15px;
+    margin-left: $left_margin;
 }
 
 .right_margin {
-    margin-right: 20px;
+    margin-right: $right_margin;
 }
