@@ -1,0 +1,166 @@
+$screen-width: 800px;
+$screen-height: 480px;
+$header-text-color: white;
+$header-bg-color: black;
+$progress-bar-width: 20px;
+$progress-bar-top-spacing: 20px;
+$progress-bar-height: 400px;
+$gauge-primary-color: #F8774B;
+$content-bg-color: #222;
+$gauge-bg-color: #334455;
+$gauge-stroke-outer-width: 15;
+$gauge-stroke-dash-width: 1;
+$gauge-stroke-inner-width: 12;
+$gauge-stroke-size: 27.5;
+$gauge-value-text-size: 0.4em;
+$fuel-label-right-margin: 10px;
+$lap-timer-icon-padding-bot-offset: 200px;
+
+.content_container {
+    display: flex;
+    flex-direction: column;
+    max-width: $screen-width;
+    max-height: $screen-height;
+    width: $screen-width;
+    height: $screen-height;
+    overflow: hidden;
+    background-color: $content-bg-color;
+}
+
+.fuel_level {
+    display: flex;
+    flex-direction: row;
+
+    .fuel_labels {
+        display: flex;
+        flex-direction: column;
+        color: $gauge-primary-color;
+        margin-right: $fuel-label-right-margin;
+        max-height: $progress-bar-height;
+        margin-top: $progress-bar-top-spacing;
+
+        .F {
+            display: flex;
+            flex: 1;
+        }
+
+        .I {
+            display: flex;
+            flex: 1;
+            align-self: center;
+        }
+
+        .E {
+            display: flex;
+        }
+    }
+}
+
+.lap_timer {
+    display: flex;
+    flex-direction: row;
+
+    .lap_time {
+        color: $gauge-primary-color;
+    }
+
+    .lap_bar_wrapper {
+        padding-left: 5px;
+    }
+
+    .no_top_spacing {
+        margin-top: unset !important;
+    }
+
+    .icon_container {
+        display: flex;
+        align-content: center;
+        color: $gauge-primary-color;
+
+        div {
+            margin-top: auto;
+            margin-bottom: auto;
+            padding-bottom: $lap-timer-icon-padding-bot-offset;
+        }
+    }
+}
+
+.header_bar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: $header-bg-color;
+    color: $header-text-color;
+    justify-content: center;
+    align-items: center;
+
+    .pit_info {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .time_on {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+    }
+}
+
+.gauge_container {
+    display: flex;
+    flex-direction: row;
+}
+
+.progress-bar-vertical {
+    width: $progress-bar-width;
+    margin-top: $progress-bar-top-spacing;
+    min-height: $progress-bar-height;
+    display: flex;
+    align-items: flex-end;
+    float: left;
+}
+
+.progress-bar-vertical .progress-bar {
+    width: 100%;
+    height: 0;
+    -webkit-transition: height 0.6s ease;
+    -o-transition: height 0.6s ease;
+    transition: height 0.6s ease;
+    background-color: $gauge-primary-color;
+}
+
+mwl-gauge {
+    flex: 1;
+    display: block;
+    padding: 10px;
+    background-color: $content-bg-color;
+    border-radius: 3px;
+    position: relative;
+
+    .gauge {
+        .dial {
+            stroke: $gauge-bg-color;
+            stroke-width: $gauge-stroke-outer-width;
+        }
+
+        .value {
+            stroke: $gauge-primary-color;
+            stroke-dasharray: $gauge-stroke-size $gauge-stroke-dash-width;
+            stroke-width: $gauge-stroke-inner-width;
+        }
+
+        .value-text {
+            fill: $gauge-primary-color;
+            font-size: $gauge-value-text-size;
+        }
+    }
+}
+
+.left_margin {
+    margin-left: 15px;
+}
+
+.right_margin {
+    margin-right: 20px;
+}
