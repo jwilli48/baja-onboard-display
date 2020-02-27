@@ -1,10 +1,10 @@
-$screen-width: 800px;
-$screen-height: 480px;
+$screen-width: 700px;
+$screen-height: 430px;
 $header-text-color: white;
 $header-bg-color: black;
 $progress-bar-width: 20px;
 $progress-bar-top-spacing: 20px;
-$progress-bar-height: 400px;
+$progress-bar-height: 350px;
 $gauge-primary-color: #F8774B;
 $content-bg-color: #222;
 $gauge-bg-color: #334455;
@@ -14,10 +14,12 @@ $gauge-stroke-inner-width: 12;
 $gauge-stroke-size: 27.5;
 $gauge-value-text-size: 0.4em;
 $fuel-label-right-margin: 10px;
+$fuel-bar-top-margin: 7px;
 $lap-timer-icon-padding-bot-offset: 200px;
-$speed_container_left_offset: 334px;
+$lap-timer-icon-left-margin: 5px;
+$speed_container_left_offset: 280px;
 $speed_container_top_offset: 165px;
-$speed_main_label_left_margin: 32px;
+$speed_main_label_left_margin: 33px;
 $speed_main_label_font_size: 60px;
 $left_margin: 15px;
 $right_margin: 20px;
@@ -32,6 +34,7 @@ $right_margin: 20px;
     height: $screen-height;
     overflow: hidden;
     background-color: $content-bg-color;
+    cursor: none;
 }
 
 .fuel_level {
@@ -72,7 +75,7 @@ $right_margin: 20px;
     }
 
     .lap_bar_wrapper {
-        padding-left: 5px;
+        padding-left: $lap-timer-icon-left-margin;
     }
 
     .no_top_spacing {
@@ -83,6 +86,7 @@ $right_margin: 20px;
         display: flex;
         align-content: center;
         color: $gauge-primary-color;
+        margin-left: 5px;
 
         div {
             margin-top: auto;
@@ -187,4 +191,5 @@ mwl-gauge {
 
 .right_margin {
     margin-right: $right_margin;
+    margin-top: $fuel-bar-top-margin;
 }
