@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { GaugeModule } from 'angular-gauge';
 
@@ -10,7 +10,8 @@ import { GaugeModule } from 'angular-gauge';
   ],
   imports: [
     BrowserModule,
-    GaugeModule.forRoot()
+    GaugeModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
