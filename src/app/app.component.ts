@@ -68,10 +68,10 @@ export class AppComponent implements OnInit, OnDestroy {
   getData(): void {
     this.dataService.getData().subscribe((data) => {
       this.data = data;
-      let data_str = this.data.split(' ');
-      this.x = +data_str[0];
-      this.y = +data_str[1];
-      this.z = +data_str[2];
+      // let data_str = this.data.split(' ');
+      // this.x = +data_str[0];
+      // this.y = +data_str[1];
+      // this.z = +data_str[2];
     });
   }
 }
