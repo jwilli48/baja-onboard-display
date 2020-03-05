@@ -9,6 +9,6 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getData() {
-
+    return this.http.get<String>('http://localhost:8080');
   }
 }
