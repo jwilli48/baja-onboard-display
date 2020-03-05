@@ -1,7 +1,6 @@
 import { Component, ViewEncapsulation, OnInit, OnDestroy } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription, interval } from 'rxjs';
 import { DataService } from './data.service';
-import { getLocaleDateFormat } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -30,12 +29,17 @@ export class AppComponent implements OnInit, OnDestroy {
   x: number;
   y: number;
   z: number;
+  data: string;
+
+  runner: Subscription;
 
   constructor(private dataService: DataService) {
     this.displayLabel = function (value: number): string {
       return `${value}x1000`;
     };
-    <any>setInterval(() => this.getData(), 500);
+    this.runner = interval(500).subscribe((time) => {
+      this.getData();
+    })
   }
 
   ngOnInit(): void {
@@ -62,7 +66,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   getData(): void {
-    this.dataService.getData().subscribe((data: String) => {
+    this.dataService.getData().subscribe((data: string) => {
+      this.data = data;
       let data_str = data.split(' ');
       this.x = +data_str[0];
       this.y = +data_str[1];
